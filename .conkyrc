@@ -16,7 +16,7 @@
 ##############################################
 background yes
 use_xft yes
-xftfont Liberation Sans:size=12
+xftfont Liberation Sans:size=8
 xftalpha 1
 update_interval 1.0
 total_run_times 0
@@ -54,13 +54,17 @@ Uptime:$alignr$uptime
 RAM:$alignr$mem/$memmax
 Swap usage:$alignr$swap/$swapmax
 Disk usage:$alignr${fs_used /}/${fs_size /}
+Home usage:$alignr${fs_used /home}/${fs_size /home}
 CPU0 usage:$alignr${cpu cpu0}%
 CPU1 usage:$alignr${cpu cpu1}%
 CPU2 usage:$alignr${cpu cpu2}%
 CPU3 usage:$alignr${cpu cpu3}%
-Battery usage:$alignr${battery_percent BAT0}%
-${battery_bar 5,150 BAT0}
-
+#Battery usage:$alignr${battery_percent BAT0}%
+#${battery_bar 5,150 BAT0}
+${if_up eth0}Wired: ${hr}
+DLS: ${downspeed eth0} $alignr Total: ${totaldown eth0}
+ULS: ${upspeed eth0} $alignr Total: ${totalup eth0}
+Local  IP: $alignr${addr eth0}${endif}
 
 S H O R T C U T    K E Y S
 ${hr}

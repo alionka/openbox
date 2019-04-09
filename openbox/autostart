@@ -26,7 +26,6 @@ volumeicon &
 
 ## Enable Clipboard
 #xfce4-power-manager &
-clipit&
 ## Start Thunar Daemon
 thunar --daemon &
 
@@ -36,7 +35,7 @@ if egrep -iq 'touchpad' /proc/bus/input/devices; then
     synclient TapButton1=0 &
 fi
 ## Start battery monitor
-batterymon&
+#batterymon&
 ## Start xscreensaver
 xscreensaver -no-splash &
 
